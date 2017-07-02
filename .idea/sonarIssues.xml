@@ -13,6 +13,26 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/finix/kata/java/StatementPrinter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/test/java/com/finix/kata/java/StatementPrinterTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/test/java/com/finix/kata/java/TransactionRepositoryShould.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/test/java/features/PrintStatementFeature.java">
+          <value>
+            <set />
+          </value>
+        </entry>
       </map>
     </option>
   </component>
