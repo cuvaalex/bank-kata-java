@@ -47,6 +47,7 @@ public class TransactionRepositoryShould {
         assertThat(transactions.get(0), is(transaction(TODAY, -100)));
     }
 
+    
     private Transaction transaction(String date, double amount) {
         return new Transaction(date, amount);
     }
