@@ -5,12 +5,22 @@ package com.finix.kata.java;
  */
 public class Transaction {
 
-    private final String date;
-    private final double amount;
 
-    public Transaction(String date, double amount) {
+
+    private final String date;
+
+    private final int amount;
+
+    public Transaction(String date, int amount) {
         this.date = date;
         this.amount = amount;
+    }
+
+    public String date() {
+        return date;
+    }
+    public int amount() {
+        return amount;
     }
 
     @Override
@@ -20,8 +30,8 @@ public class Transaction {
 
         Transaction that = (Transaction) o;
 
-        if (Double.compare(that.amount, amount) != 0) return false;
-        return date != null ? date.equals(that.date) : that.date == null;
+        return Integer.compare(that.amount, amount) == 0
+                && (date != null ? date.equals(that.date) : that.date == null);
     }
 
     @Override
@@ -29,7 +39,7 @@ public class Transaction {
         int result;
         long temp;
         result = date != null ? date.hashCode() : 0;
-        temp = Double.doubleToLongBits(amount);
+        temp = amount;
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
     }

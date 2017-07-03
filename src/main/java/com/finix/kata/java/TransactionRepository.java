@@ -1,7 +1,6 @@
 package com.finix.kata.java;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import static java.util.Collections.unmodifiableList;
@@ -12,7 +11,7 @@ import static java.util.Collections.unmodifiableList;
 public class TransactionRepository {
 
     private final Clock clock;
-    private List<Transaction> transactions = new ArrayList<Transaction>();
+    private List<Transaction> transactions = new ArrayList<>();
 
     public TransactionRepository(Clock clock) {
         this.clock = clock;
@@ -22,11 +21,11 @@ public class TransactionRepository {
         return unmodifiableList(transactions);
     }
 
-    public void addDeposit(double amount) {
+    public void addDeposit(int amount) {
         transactions.add(new Transaction(this.clock.todayAsString(), amount));
     }
 
-    public void addWithdraw(double amount) {
+    public void addWithdraw(int amount) {
         transactions.add(new Transaction(clock.todayAsString(), -amount));
     }
 }

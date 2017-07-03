@@ -15,11 +15,11 @@ public class Account {
         this.statementPrinter = statementPrinter;
     }
 
-    public void deposit(double amount) {
+    public void deposit(int amount) {
         transactionRepository.addDeposit(amount);
     }
 
-    public void withdraw(double amount) {
+    public void withdraw(int amount) {
         transactionRepository.addWithdraw(amount);
     }
 

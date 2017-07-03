@@ -2,7 +2,6 @@ package com.finix.kata.java;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
 import org.mockito.InOrder;
 import org.mockito.Mock;
@@ -32,7 +31,6 @@ public class StatementPrinterTest {
 
     @Test 
         public void should_always_print_header() {
-
         statement.print(NO_TRANSACTION);
 
         verify(console).printline("date       || credit   || debit    || balance");
@@ -42,9 +40,9 @@ public class StatementPrinterTest {
         public void should_always_print_statement_reverse_mode() {
 
         List<Transaction> transactions = transactionContaining(
-          depositTransaction("10/01.2012", 1000.00),
-            depositTransaction("13/01.2012", 1000.00),
-            widthrawtransaction("14/01.2012", 500.00)
+          depositTransaction("10/01/2012", 1000),
+            depositTransaction("13/01/2012", 2000),
+            widthrawtransaction("14/01/2012", 500)
         );
 
         statement.print(transactions);
@@ -52,9 +50,9 @@ public class StatementPrinterTest {
         InOrder inOrder = Mockito.inOrder(console);
 
         inOrder.verify(console).printline("date       || credit   || debit    || balance");
-        inOrder.verify(console).printline("14/01/2012 ||          || 500.00   || 2500.00");
-        inOrder.verify(console).printline("13/01/2012 || 2000.00  ||          || 3000.00");
-        inOrder.verify(console).printline("10/01/2012 || 1000.00  ||          || 1000.00");
+        inOrder.verify(console).printline("14/01/2012 || 0 || 500 || 2500");
+        inOrder.verify(console).printline("13/01/2012 || 2000 || 0 || 3000");
+        inOrder.verify(console).printline("10/01/2012 || 1000 || 0 || 1000");
 
     }
 
@@ -62,11 +60,11 @@ public class StatementPrinterTest {
         return Arrays.asList(transactions);
     }
 
-    private Transaction widthrawtransaction(String date, double amount) {
+    private Transaction widthrawtransaction(String date, int amount) {
         return new Transaction(date, -amount);
     }
 
-    private Transaction depositTransaction(String date, double amount){
+    private Transaction depositTransaction(String date, int amount){
         return new Transaction(date, amount);
     }
 }

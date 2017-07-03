@@ -5,6 +5,6 @@ package com.finix.kata.java;
  */
 public class Console {
     public void printline(String text) {
-        throw new UnsupportedOperationException();
+        System.out.println(text);
     }
 }

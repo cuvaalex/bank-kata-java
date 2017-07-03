@@ -48,7 +48,7 @@ public class TransactionRepositoryShould {
     }
 
     
-    private Transaction transaction(String date, double amount) {
+    private Transaction transaction(String date, int amount) {
         return new Transaction(date, amount);
     }
 }
